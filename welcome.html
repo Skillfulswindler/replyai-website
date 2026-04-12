@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Reply AI</title>
+  <meta name="description" content="Reply AI is installed. Here's how to get your first AI-generated Google review reply in under 30 seconds.">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue:       #1a73e8;
+      --blue-dark:  #1557b0;
+      --blue-bg:    #e8f0fe;
+      --green:      #137333;
+      --green-bg:   #e6f4ea;
+      --text:       #1f2128;
+      --text-2:     #4a5060;
+      --text-3:     #7b8194;
+      --line:       #e8eaed;
+      --bg:         #ffffff;
+      --bg-soft:    #f8f9fb;
+      --stripe:     linear-gradient(135deg, #1a73e8 0%, #4285f4 50%, #7c6ff5 100%);
+      --font:       'Outfit', system-ui, -apple-system, sans-serif;
+      --radius:     12px;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+    body { font-family: var(--font); color: var(--text); background: var(--bg); font-size: 16px; line-height: 1.6; }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── STRIPE ── */
+    .stripe { height: 4px; background: var(--stripe); }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--stripe); color: #fff; text-align: center;
+      padding: 64px 24px 72px;
+    }
+    .hero-icon {
+      width: 72px; height: 72px; border-radius: 20px;
+      background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.25);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px; backdrop-filter: blur(8px);
+    }
+    .hero h1 {
+      font-size: clamp(26px, 5vw, 40px); font-weight: 800;
+      letter-spacing: -0.6px; line-height: 1.15; margin-bottom: 14px;
+    }
+    .hero p { font-size: 17px; opacity: 0.88; max-width: 440px; margin: 0 auto 28px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 20px; padding: 6px 14px; font-size: 13px; font-weight: 600;
+    }
+
+    /* ── PAGE ── */
+    .page { max-width: 720px; margin: 0 auto; padding: 64px 24px 80px; }
+
+    /* ── STEPS ── */
+    .steps-title { font-size: 22px; font-weight: 700; text-align: center; margin-bottom: 40px; letter-spacing: -0.3px; }
+    .steps { display: flex; flex-direction: column; gap: 0; }
+    .step {
+      display: flex; gap: 24px; padding-bottom: 40px;
+      position: relative;
+    }
+    .step:not(:last-child)::before {
+      content: ''; position: absolute; left: 19px; top: 44px;
+      width: 2px; bottom: 0;
+      background: linear-gradient(to bottom, var(--blue-bg), transparent);
+    }
+    .step-num {
+      width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
+      background: var(--blue); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 700; z-index: 1;
+    }
+    .step-content { flex: 1; padding-top: 6px; }
+    .step-content h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .step-content p { font-size: 14.5px; color: var(--text-2); line-height: 1.6; margin-bottom: 12px; }
+    .step-img {
+      width: 100%; border-radius: 10px; border: 1.5px solid var(--line);
+      background: var(--bg-soft); overflow: hidden;
+    }
+    .step-cta {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 9px 18px; border-radius: 7px; font-size: 14px; font-weight: 600;
+      background: var(--blue); color: #fff; cursor: pointer; border: none;
+      font-family: var(--font); text-decoration: none; transition: all 0.15s;
+    }
+    .step-cta:hover { background: var(--blue-dark); transform: translateY(-1px); text-decoration: none; }
+
+    /* ── WIDGET MOCKUP ── */
+    .widget-mock {
+      background: #1f2128; border-radius: 10px; padding: 14px 16px;
+      color: #fff; font-size: 13px; max-width: 320px; margin-top: 12px;
+    }
+    .widget-mock .wm-top {
+      display: flex; align-items: center; gap: 8px; margin-bottom: 10px;
+    }
+    .wm-logo { width: 22px; height: 22px; border-radius: 5px; background: var(--stripe); flex-shrink: 0; }
+    .wm-title { font-weight: 600; font-size: 12px; opacity: 0.9; }
+    .wm-btn {
+      background: #1a73e8; color: #fff; border: none; border-radius: 6px;
+      padding: 8px 16px; font-size: 13px; font-weight: 600; width: 100%;
+      cursor: pointer; font-family: var(--font); display: flex; align-items: center; justify-content: center; gap: 6px;
+    }
+    .wm-kbd {
+      font-size: 10px; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 3px; padding: 1px 5px; font-family: monospace;
+    }
+
+    /* ── TIPS ── */
+    .tips-section { margin-top: 64px; }
+    .tips-title { font-size: 20px; font-weight: 700; margin-bottom: 24px; letter-spacing: -0.3px; }
+    .tips-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .tip {
+      border: 1.5px solid var(--line); border-radius: 12px; padding: 20px;
+      background: var(--bg-soft);
+    }
+    .tip-icon { font-size: 22px; margin-bottom: 10px; }
+    .tip h4 { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .tip p { font-size: 13.5px; color: var(--text-2); line-height: 1.55; }
+
+    /* ── STATS ── */
+    .stats-banner {
+      background: var(--green-bg); border: 1.5px solid rgba(19,115,51,0.2);
+      border-radius: 12px; padding: 24px 28px; margin-top: 48px;
+      display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+    }
+    .stat-num { font-size: 28px; font-weight: 800; color: var(--green); }
+    .stat-label { font-size: 13px; color: var(--text-2); margin-top: 2px; }
+    .stats-banner .stat { flex: 1; min-width: 120px; text-align: center; }
+    .stats-banner .divider { width: 1px; height: 50px; background: rgba(19,115,51,0.2); }
+
+    /* ── CTA SECTION ── */
+    .cta-section { text-align: center; margin-top: 64px; }
+    .cta-section h2 { font-size: 24px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.3px; }
+    .cta-section p { font-size: 15px; color: var(--text-2); margin-bottom: 24px; }
+    .cta-group { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 24px; border-radius: 8px; font-family: var(--font);
+      font-size: 15px; font-weight: 600; cursor: pointer; border: none;
+      transition: all 0.15s; text-decoration: none; white-space: nowrap;
+    }
+    .btn-primary { background: var(--blue); color: #fff; box-shadow: 0 2px 8px rgba(26,115,232,0.3); }
+    .btn-primary:hover { background: var(--blue-dark); transform: translateY(-1px); text-decoration: none; }
+    .btn-secondary { background: var(--bg); color: var(--blue); border: 1.5px solid var(--line); }
+    .btn-secondary:hover { border-color: var(--blue); background: var(--blue-bg); text-decoration: none; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--line); padding: 24px 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 13px; color: var(--text-3); flex-wrap: wrap; gap: 12px;
+    }
+    footer a { color: var(--text-3); }
+    footer a:hover { color: var(--text); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .tips-grid { grid-template-columns: 1fr; }
+      .stats-banner .divider { display: none; }
+      .stats-banner { gap: 12px; }
+      footer { padding: 20px 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="stripe"></div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-icon">
+      <svg width="36" height="36" fill="none" viewBox="0 0 36 36">
+        <path d="M18 6l3 7h7l-5.5 4 2 7L18 20l-6.5 4 2-7L8 13h7L18 6z" fill="white" opacity="0.9"/>
+      </svg>
+    </div>
+    <h1>Reply AI is installed.<br>Let's write your first reply.</h1>
+    <p>You're 30 seconds away from your first AI-generated Google review reply that sounds completely human.</p>
+    <div class="hero-badge">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3 3 7-7" stroke="#4ade80" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      15 free replies included every month
+    </div>
+  </div>
+
+  <div class="page">
+
+    <!-- HOW TO USE -->
+    <h2 class="steps-title">Get started in 3 steps</h2>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>Set up your business</h3>
+          <p>Open the Reply AI popup (click the extension icon in Chrome's toolbar). Select your business type, enter your business name, and choose a default tone. This only takes a minute and unlocks much better replies.</p>
+          <p>Pro tip: add a <strong>brand voice</strong> — either describe how you write, or paste a reply you love. The AI will match your style exactly.</p>
+          <a href="#" class="step-cta" onclick="chrome.runtime.openOptionsPage && chrome.runtime.openOptionsPage(); return false;">
+            Open settings
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 2h7m0 0v7m0-7L5 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>Go to your Google Business Profile</h3>
+          <p>Navigate to <a href="https://business.google.com" target="_blank" rel="noopener">business.google.com</a> and open the Reviews section. Find a review that needs a response and click <strong>Reply</strong>.</p>
+          <p>The Reply AI widget will appear automatically below the reply box — you don't need to do anything else.</p>
+          <a href="https://business.google.com/reviews" class="step-cta" target="_blank" rel="noopener">
+            Open Google Business
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 2h7m0 0v7m0-7L5 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>Click "Reply for me"</h3>
+          <p>The widget shows a preview of the review, the age of the review, and a big "Reply for me" button. Click it and a reply appears in the text box within 2–3 seconds, ready to post.</p>
+          <p>Not happy with the result? Click <strong>Different reply</strong> for a completely different version. Want something tweaked? Edit directly in the box before posting.</p>
+
+          <div class="widget-mock">
+            <div class="wm-top">
+              <div class="wm-logo"></div>
+              <div class="wm-title">Reply AI &bull; 4★ &bull; 2 days ago</div>
+            </div>
+            <button class="wm-btn">
+              Reply for me
+              <span class="wm-kbd">Alt+G</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIPS -->
+    <div class="tips-section">
+      <h2 class="tips-title">Tips for best results</h2>
+      <div class="tips-grid">
+        <div class="tip">
+          <div class="tip-icon">🎯</div>
+          <h4>Match your business type exactly</h4>
+          <p>Reply AI has 26 business-specific contexts. A dental clinic reply sounds very different from a restaurant reply. Get this right first.</p>
+        </div>
+        <div class="tip">
+          <div class="tip-icon">🗣️</div>
+          <h4>Add a brand voice example</h4>
+          <p>Paste one of your best-ever review replies as your brand voice. The AI will match the rhythm, vocabulary, and personality instantly.</p>
+        </div>
+        <div class="tip">
+          <div class="tip-icon">⭐</div>
+          <h4>Reply to everything — even 5-stars</h4>
+          <p>Businesses that respond to all reviews earn 35% more revenue on average. Don't just reply to complaints.</p>
+        </div>
+        <div class="tip">
+          <div class="tip-icon">⏱️</div>
+          <h4>Reply within 7 days</h4>
+          <p>52% of customers expect a response within a week. Reply AI shows you the review age and adjusts the reply tone for late responses automatically.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATS BANNER -->
+    <div class="stats-banner">
+      <div class="stat">
+        <div class="stat-num">88%</div>
+        <div class="stat-label">of consumers pick businesses<br>that respond to all reviews</div>
+      </div>
+      <div class="divider"></div>
+      <div class="stat">
+        <div class="stat-num">35%</div>
+        <div class="stat-label">more revenue for<br>businesses that reply</div>
+      </div>
+      <div class="divider"></div>
+      <div class="stat">
+        <div class="stat-num">73%</div>
+        <div class="stat-label">of unhappy customers give<br>a 2nd chance if you respond</div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <h2>Ready to try it?</h2>
+      <p>Head to your Google Business Profile and click Reply on any review.</p>
+      <div class="cta-group">
+        <a href="https://business.google.com/reviews" class="btn btn-primary" target="_blank" rel="noopener">
+          Open Google Business Profile
+        </a>
+        <a href="/upgrade.html" class="btn btn-secondary">
+          View pricing plans
+        </a>
+      </div>
+    </div>
+
+  </div><!-- end .page -->
+
+  <footer>
+    <span>&copy; 2026 Reply AI. All rights reserved.</span>
+    <span>
+      <a href="/privacy.html">Privacy Policy</a> &middot;
+      <a href="mailto:nick@replyai.ca">Support</a> &middot;
+      <a href="/">Home</a>
+    </span>
+  </footer>
+</body>
+</html>

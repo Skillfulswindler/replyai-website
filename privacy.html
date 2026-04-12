@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Reply AI</title>
+  <meta name="description" content="Reply AI Privacy Policy. What data we collect, how we use it, and your rights.">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue:       #1a73e8;
+      --blue-dark:  #1557b0;
+      --blue-bg:    #e8f0fe;
+      --green:      #137333;
+      --text:       #1f2128;
+      --text-2:     #4a5060;
+      --text-3:     #7b8194;
+      --line:       #e8eaed;
+      --bg:         #ffffff;
+      --bg-soft:    #f8f9fb;
+      --stripe:     linear-gradient(135deg, #1a73e8 0%, #4285f4 50%, #7c6ff5 100%);
+      --font:       'Outfit', system-ui, -apple-system, sans-serif;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+    body { font-family: var(--font); color: var(--text); background: var(--bg); font-size: 16px; line-height: 1.7; }
+    a { color: var(--blue); }
+    a:hover { text-decoration: underline; }
+
+    .stripe { height: 4px; background: var(--stripe); }
+
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 32px; border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,0.95); backdrop-filter: blur(8px);
+    }
+    .logo {
+      font-size: 18px; font-weight: 700; color: var(--text);
+      display: flex; align-items: center; gap: 8px; text-decoration: none;
+    }
+    .logo-icon {
+      width: 28px; height: 28px; border-radius: 7px;
+      background: var(--stripe); display: flex; align-items: center; justify-content: center;
+    }
+    .nav-link { font-size: 14px; color: var(--text-2); font-weight: 500; }
+    .nav-link:hover { color: var(--text); text-decoration: none; }
+
+    /* ── DOCUMENT LAYOUT ── */
+    .doc { max-width: 720px; margin: 0 auto; padding: 64px 24px 100px; }
+    .doc-header { margin-bottom: 48px; }
+    .doc-header h1 { font-size: 34px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 12px; }
+    .doc-header .meta { font-size: 14px; color: var(--text-3); }
+    .doc-header .meta a { color: var(--text-3); }
+
+    /* ── TOC ── */
+    .toc {
+      background: var(--bg-soft); border: 1.5px solid var(--line);
+      border-radius: 12px; padding: 24px 28px; margin-bottom: 48px;
+    }
+    .toc h2 { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-3); margin-bottom: 14px; }
+    .toc ol { padding-left: 18px; }
+    .toc li { font-size: 14.5px; margin-bottom: 6px; }
+
+    /* ── SECTIONS ── */
+    .section { margin-bottom: 48px; scroll-margin-top: 80px; }
+    .section h2 { font-size: 21px; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1.5px solid var(--line); }
+    .section p { font-size: 15px; color: var(--text-2); margin-bottom: 14px; }
+    .section p:last-child { margin-bottom: 0; }
+    .section ul, .section ol { padding-left: 22px; margin-bottom: 14px; }
+    .section li { font-size: 15px; color: var(--text-2); margin-bottom: 8px; }
+    .section strong { color: var(--text); font-weight: 600; }
+    .section h3 { font-size: 16px; font-weight: 700; margin: 24px 0 10px; }
+
+    /* ── HIGHLIGHT BOX ── */
+    .highlight-box {
+      background: var(--blue-bg); border-left: 3px solid var(--blue);
+      border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 20px 0;
+    }
+    .highlight-box p { color: var(--text-2); font-size: 14.5px; margin: 0; }
+
+    /* ── CONTACT ── */
+    .contact-card {
+      background: var(--bg-soft); border: 1.5px solid var(--line);
+      border-radius: 12px; padding: 28px; text-align: center;
+    }
+    .contact-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .contact-card p { font-size: 14.5px; color: var(--text-2); margin-bottom: 16px; }
+    .contact-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 10px 20px; border-radius: 7px; background: var(--blue); color: #fff;
+      font-family: var(--font); font-size: 14px; font-weight: 600; text-decoration: none;
+      transition: background 0.15s;
+    }
+    .contact-btn:hover { background: var(--blue-dark); text-decoration: none; }
+
+    footer {
+      border-top: 1px solid var(--line); padding: 24px 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 13px; color: var(--text-3); flex-wrap: wrap; gap: 12px;
+    }
+    footer a { color: var(--text-3); }
+    footer a:hover { color: var(--text); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="stripe"></div>
+
+  <nav>
+    <a href="/" class="logo">
+      <div class="logo-icon">
+        <svg width="16" height="16" fill="none" viewBox="0 0 16 16"><path d="M8 2L10 6H14L11 9L12 13L8 11L4 13L5 9L2 6H6L8 2Z" fill="white" opacity="0.9"/></svg>
+      </div>
+      Reply AI
+    </a>
+    <a href="/" class="nav-link">Back to home</a>
+  </nav>
+
+  <div class="doc">
+
+    <div class="doc-header">
+      <h1>Privacy Policy</h1>
+      <div class="meta">
+        Last updated: 1 April 2026 &middot; Effective: 1 April 2026 &middot;
+        Questions? <a href="mailto:nick@replyai.ca">nick@replyai.ca</a>
+      </div>
+    </div>
+
+    <div class="toc">
+      <h2>Contents</h2>
+      <ol>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#data-collected">Data we collect</a></li>
+        <li><a href="#how-we-use">How we use your data</a></li>
+        <li><a href="#data-storage">Data storage &amp; retention</a></li>
+        <li><a href="#third-parties">Third parties</a></li>
+        <li><a href="#your-rights">Your rights</a></li>
+        <li><a href="#children">Children's privacy</a></li>
+        <li><a href="#security">Security</a></li>
+        <li><a href="#changes">Changes to this policy</a></li>
+        <li><a href="#contact">Contact us</a></li>
+      </ol>
+    </div>
+
+    <div class="section" id="overview">
+      <h2>1. Overview</h2>
+      <p>Reply AI ("we", "us", "our") is a Chrome extension and backend service that generates AI-powered replies to Google Business Profile reviews. This Privacy Policy explains what data we collect, why we collect it, and how you can control it.</p>
+
+      <div class="highlight-box">
+        <p><strong>The short version:</strong> We collect only what we need to generate replies and count usage. We never sell your data. Review content is processed to generate a reply and is not stored on our servers beyond the immediate API call. We do not read your Google account or access any data other than the review text you trigger on.</p>
+      </div>
+
+      <p>By installing the Reply AI Chrome extension or using our service at replyai.ca, you agree to this policy.</p>
+    </div>
+
+    <div class="section" id="data-collected">
+      <h2>2. Data we collect</h2>
+
+      <h3>2.1 Data stored locally on your device</h3>
+      <p>The Reply AI extension stores the following in Chrome's local storage (<code>chrome.storage.local</code>). This data never leaves your device unless explicitly sent to our servers as part of a reply request.</p>
+      <ul>
+        <li><strong>Business settings:</strong> business type, business name, default tone</li>
+        <li><strong>Brand voice:</strong> any text you enter in the Brand Voice field (up to 600 characters)</li>
+        <li><strong>Usage counter:</strong> number of replies generated in the current calendar month, the month identifier, and total lifetime replies</li>
+        <li><strong>Subscription status:</strong> whether your account is on a paid plan (a boolean flag; no payment details are stored locally)</li>
+        <li><strong>UI state:</strong> whether the upgrade prompt has been dismissed</li>
+      </ul>
+
+      <h3>2.2 Data sent to our servers when you generate a reply</h3>
+      <p>When you click "Reply for me", the following is sent to our backend at <code>replyai-backend-production-e6fd.up.railway.app</code>:</p>
+      <ul>
+        <li>The text content of the Google review</li>
+        <li>The star rating</li>
+        <li>The reviewer's display name (as shown on Google)</li>
+        <li>Your business type and business name</li>
+        <li>Your selected tone</li>
+        <li>Your brand voice text (if set)</li>
+        <li>The approximate age of the review in days</li>
+      </ul>
+      <p><strong>We do not collect or transmit:</strong> your Google account credentials, your Google Business Profile ID, your location, your IP address beyond what is technically required for the HTTPS connection, or any payment information.</p>
+
+      <h3>2.3 Aggregated, anonymous usage stats</h3>
+      <p>Our server logs aggregate, anonymous counts: total replies generated, error rates, and average processing times. These cannot be linked back to any individual user or business.</p>
+    </div>
+
+    <div class="section" id="how-we-use">
+      <h2>3. How we use your data</h2>
+      <p>We use the data described above for exactly three purposes:</p>
+      <ul>
+        <li><strong>Generating the reply:</strong> Review text, rating, reviewer name, business context, tone, brand voice, and review age are all passed to the Anthropic Claude API to generate a human-sounding reply. This is the sole purpose of the transmission.</li>
+        <li><strong>Enforcing usage limits:</strong> The usage counter stored locally ensures free-tier users cannot exceed 15 replies per month. This check happens in your browser, not on our servers.</li>
+        <li><strong>Improving reliability:</strong> Aggregate, anonymous error counts help us identify and fix problems.</li>
+      </ul>
+      <p>We never use your data for advertising, profiling, or any purpose beyond the above.</p>
+    </div>
+
+    <div class="section" id="data-storage">
+      <h2>4. Data storage &amp; retention</h2>
+      <p>Review text and other inputs sent to generate a reply are processed in memory and not written to any database or persistent log. Once the reply is generated and returned to your browser, the input data is discarded.</p>
+      <p>Settings data stored in <code>chrome.storage.local</code> (business name, brand voice, usage counts) lives on your device. It is deleted automatically when you uninstall the extension. You can also clear it manually via Chrome's extension storage settings at any time.</p>
+      <p>If you upgrade to a paid plan, we store your email address and subscription status in our user database (hosted on Supabase in the EU-West-1 region). This data is retained for the duration of your subscription and for up to 90 days after cancellation, after which it is permanently deleted.</p>
+    </div>
+
+    <div class="section" id="third-parties">
+      <h2>5. Third parties</h2>
+      <p>We share data with the following third-party services, limited to what is necessary:</p>
+      <ul>
+        <li><strong>Anthropic (claude.ai API):</strong> Review text and context are sent to Anthropic's Claude API to generate replies. Anthropic processes this data under their own <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Privacy Policy</a>. Anthropic does not use API inputs to train their models by default.</li>
+        <li><strong>Railway:</strong> Our backend server is hosted on Railway. Hosting infrastructure data (server logs, performance metrics) is handled under Railway's <a href="https://railway.app/legal/privacy" target="_blank" rel="noopener">Privacy Policy</a>.</li>
+        <li><strong>Stripe:</strong> If you subscribe to a paid plan, payment processing is handled by Stripe. We never see or store your card details. Stripe processes payments under their own <a href="https://stripe.com/gb/privacy" target="_blank" rel="noopener">Privacy Policy</a>.</li>
+        <li><strong>Supabase:</strong> Paid subscriber account data (email, subscription status) is stored in Supabase. Data is held in EU-West-1 (Ireland) under Supabase's <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>.</li>
+      </ul>
+      <p>We do not sell, rent, or share your personal data with any other third party for any purpose.</p>
+    </div>
+
+    <div class="section" id="your-rights">
+      <h2>6. Your rights</h2>
+      <p>Depending on where you are located, you may have the following rights regarding your personal data:</p>
+      <ul>
+        <li><strong>Access:</strong> Request a copy of the personal data we hold about you.</li>
+        <li><strong>Correction:</strong> Ask us to correct any inaccurate data.</li>
+        <li><strong>Deletion:</strong> Request that we delete your data. For extension data, simply uninstalling the extension achieves this. For account data, email us and we'll delete it within 30 days.</li>
+        <li><strong>Portability:</strong> Request your data in a machine-readable format.</li>
+        <li><strong>Objection:</strong> Object to how we process your data in certain circumstances.</li>
+      </ul>
+      <p>To exercise any of these rights, email <a href="mailto:nick@replyai.ca">nick@replyai.ca</a>. We will respond within 30 days.</p>
+      <p>If you are in the United Kingdom or European Economic Area, you also have the right to lodge a complaint with your local data protection authority.</p>
+    </div>
+
+    <div class="section" id="children">
+      <h2>7. Children's privacy</h2>
+      <p>Reply AI is not directed at children under 13 years of age. We do not knowingly collect personal data from children. If you believe a child has provided us with personal data, please contact us and we will delete it immediately.</p>
+    </div>
+
+    <div class="section" id="security">
+      <h2>8. Security</h2>
+      <p>All data transmitted between the extension and our servers is encrypted using HTTPS/TLS. Our backend enforces rate limits and CORS restrictions to prevent abuse. Paid subscriber data in Supabase is encrypted at rest.</p>
+      <p>No method of transmission over the internet is 100% secure. While we take reasonable steps to protect your data, we cannot guarantee absolute security and encourage you to use strong, unique passwords for any accounts.</p>
+    </div>
+
+    <div class="section" id="changes">
+      <h2>9. Changes to this policy</h2>
+      <p>We may update this Privacy Policy from time to time. When we do, we'll update the "Last updated" date at the top of this page. If the changes are significant, we'll notify users via the extension or email (for paid subscribers). Continuing to use Reply AI after changes are posted constitutes acceptance of the updated policy.</p>
+    </div>
+
+    <div class="section" id="contact">
+      <h2>10. Contact us</h2>
+      <p>If you have any questions about this Privacy Policy or how we handle your data, we want to hear from you.</p>
+      <div class="contact-card">
+        <h3>Privacy questions or requests</h3>
+        <p>Reach Nick directly at Reply AI. We respond to all privacy enquiries within 2 business days.</p>
+        <a href="mailto:nick@replyai.ca?subject=Privacy enquiry" class="contact-btn">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 3h10a1 1 0 011 1v6a1 1 0 01-1 1H2a1 1 0 01-1-1V4a1 1 0 011-1z" stroke="currentColor" stroke-width="1.4" fill="none"/><path d="M1 4l6 4 6-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+          nick@replyai.ca
+        </a>
+        <p style="margin-top:12px; font-size:13px; color: var(--text-3);">
+          Reply AI &bull; replyai.ca
+        </p>
+      </div>
+    </div>
+
+  </div><!-- end .doc -->
+
+  <footer>
+    <span>&copy; 2026 Reply AI. All rights reserved.</span>
+    <span>
+      <a href="/privacy.html">Privacy Policy</a> &middot;
+      <a href="mailto:nick@replyai.ca">Support</a> &middot;
+      <a href="/">Home</a>
+    </span>
+  </footer>
+</body>
+</html>
