@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy — Reply AI</title>
+  <title>Privacy Policy | Reply AI</title>
   <meta name="description" content="Reply AI Privacy Policy. What data we collect, how we use it, and your rights.">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -162,7 +162,7 @@
       <ul>
         <li><strong>Business settings:</strong> business type, business name, default tone</li>
         <li><strong>Brand voice:</strong> any text you enter in the Brand Voice field (up to 600 characters)</li>
-        <li><strong>Usage counter:</strong> number of replies generated in the current calendar month, the month identifier, and total lifetime replies</li>
+        <li><strong>Usage counter:</strong> total lifetime replies generated (used to enforce the 5-reply free trial)</li>
         <li><strong>Subscription status:</strong> whether your account is on a paid plan (a boolean flag; no payment details are stored locally)</li>
         <li><strong>UI state:</strong> whether the upgrade prompt has been dismissed</li>
       </ul>
@@ -189,7 +189,7 @@
       <p>We use the data described above for exactly three purposes:</p>
       <ul>
         <li><strong>Generating the reply:</strong> Review text, rating, reviewer name, business context, tone, brand voice, and review age are all passed to the Anthropic Claude API to generate a human-sounding reply. This is the sole purpose of the transmission.</li>
-        <li><strong>Enforcing usage limits:</strong> The usage counter stored locally ensures free-tier users cannot exceed 15 replies per month. This check happens in your browser, not on our servers.</li>
+        <li><strong>Enforcing usage limits:</strong> The usage counter stored locally ensures free-tier users cannot exceed the 5-reply one-time trial. This check happens in your browser, not on our servers.</li>
         <li><strong>Improving reliability:</strong> Aggregate, anonymous error counts help us identify and fix problems.</li>
       </ul>
       <p>We never use your data for advertising, profiling, or any purpose beyond the above.</p>
@@ -199,7 +199,7 @@
       <h2>4. Data storage &amp; retention</h2>
       <p>Review text and other inputs sent to generate a reply are processed in memory and not written to any database or persistent log. Once the reply is generated and returned to your browser, the input data is discarded.</p>
       <p>Settings data stored in <code>chrome.storage.local</code> (business name, brand voice, usage counts) lives on your device. It is deleted automatically when you uninstall the extension. You can also clear it manually via Chrome's extension storage settings at any time.</p>
-      <p>If you upgrade to a paid plan, we store your email address and subscription status in our user database (hosted on Supabase in the EU-West-1 region). This data is retained for the duration of your subscription and for up to 90 days after cancellation, after which it is permanently deleted.</p>
+      <p>If you upgrade to a paid plan, your subscription is managed via Stripe. Stripe holds your email address and payment method. We do not maintain a separate user database. Your subscription status is verified in real time against Stripe. When you cancel, Stripe retains your billing records per their own data retention policies.</p>
     </div>
 
     <div class="section" id="third-parties">
@@ -208,8 +208,7 @@
       <ul>
         <li><strong>Anthropic (claude.ai API):</strong> Review text and context are sent to Anthropic's Claude API to generate replies. Anthropic processes this data under their own <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Privacy Policy</a>. Anthropic does not use API inputs to train their models by default.</li>
         <li><strong>Railway:</strong> Our backend server is hosted on Railway. Hosting infrastructure data (server logs, performance metrics) is handled under Railway's <a href="https://railway.app/legal/privacy" target="_blank" rel="noopener">Privacy Policy</a>.</li>
-        <li><strong>Stripe:</strong> If you subscribe to a paid plan, payment processing is handled by Stripe. We never see or store your card details. Stripe processes payments under their own <a href="https://stripe.com/gb/privacy" target="_blank" rel="noopener">Privacy Policy</a>.</li>
-        <li><strong>Supabase:</strong> Paid subscriber account data (email, subscription status) is stored in Supabase. Data is held in EU-West-1 (Ireland) under Supabase's <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>.</li>
+        <li><strong>Stripe:</strong> If you subscribe to a paid plan, payment processing and subscription management are handled by Stripe. We never see or store your card details. Stripe holds your email address and billing records under their own <a href="https://stripe.com/gb/privacy" target="_blank" rel="noopener">Privacy Policy</a>.</li>
       </ul>
       <p>We do not sell, rent, or share your personal data with any other third party for any purpose.</p>
     </div>
@@ -235,7 +234,7 @@
 
     <div class="section" id="security">
       <h2>8. Security</h2>
-      <p>All data transmitted between the extension and our servers is encrypted using HTTPS/TLS. Our backend enforces rate limits and CORS restrictions to prevent abuse. Paid subscriber data in Supabase is encrypted at rest.</p>
+      <p>All data transmitted between the extension and our servers is encrypted using HTTPS/TLS. Our backend enforces rate limits and CORS restrictions to prevent abuse. Payment data is handled entirely by Stripe and is never stored on our servers.</p>
       <p>No method of transmission over the internet is 100% secure. While we take reasonable steps to protect your data, we cannot guarantee absolute security and encourage you to use strong, unique passwords for any accounts.</p>
     </div>
 
@@ -272,3 +271,4 @@
   </footer>
 </body>
 </html>
+     
