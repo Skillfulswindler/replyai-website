@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Pro | Reply AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue:      #1a73e8;
+      --blue-bg:   #e8f0fe;
+      --blue-dark: #1557b0;
+      --green:     #137333;
+      --green-bg:  #e6f4ea;
+      --text:      #1f2128;
+      --text-2:    #4a5060;
+      --text-3:    #7b8194;
+      --line:      #e8eaed;
+      --stripe:    linear-gradient(90deg, #1a73e8 0%, #4285f4 50%, #7c6ff5 100%);
+      --font:      'Outfit', system-ui, -apple-system, sans-serif;
+      --radius:    12px;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: var(--font);
+      background: #f8f9fb;
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+    }
+
+    .stripe-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--stripe);
+    }
+
+    .card {
+      background: white;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+      padding: 40px 36px;
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .icon {
+      width: 56px; height: 56px;
+      background: var(--green-bg);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .icon svg { color: var(--green); }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+    .sub {
+      color: var(--text-2);
+      font-size: 15px;
+      line-height: 1.55;
+      margin-bottom: 28px;
+    }
+
+    /* License key display */
+    .key-wrap {
+      background: var(--blue-bg);
+      border: 1.5px solid rgba(26,115,232,0.25);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .key-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--blue);
+      margin-bottom: 10px;
+    }
+    .key-value {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--text);
+      font-variant-numeric: tabular-nums;
+      margin-bottom: 12px;
+      word-break: break-all;
+      min-height: 32px;
+    }
+    .key-value.loading {
+      color: var(--text-3);
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0;
+      animation: pulse 1.4s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+    .btn-copy {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 9px 18px;
+      background: var(--blue);
+      border: none; border-radius: 8px;
+      color: white;
+      font-family: var(--font); font-size: 13px; font-weight: 600;
+      cursor: pointer;
+      transition: background 0.12s;
+    }
+    .btn-copy:hover { background: var(--blue-dark); }
+    .btn-copy.ok { background: var(--green); }
+
+    .instructions {
+      margin-top: 24px;
+      text-align: left;
+      background: #fafbfc;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 18px 20px;
+    }
+    .instructions h3 {
+      font-size: 13px; font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .step {
+      display: flex; gap: 12px;
+      margin-bottom: 10px;
+      align-items: flex-start;
+      font-size: 13.5px;
+      color: var(--text-2);
+      line-height: 1.5;
+    }
+    .step:last-child { margin-bottom: 0; }
+    .step-num {
+      width: 22px; height: 22px; flex-shrink: 0;
+      background: var(--blue-bg);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 700; color: var(--blue);
+    }
+
+    .email-note {
+      margin-top: 20px;
+      font-size: 12.5px;
+      color: var(--text-3);
+    }
+    .email-note a { color: var(--blue); text-decoration: none; }
+    .email-note a:hover { text-decoration: underline; }
+
+    .error-state {
+      display: none;
+      background: #fff8f8;
+      border: 1px solid rgba(197,34,31,0.25);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 16px;
+      font-size: 13.5px;
+      color: #c5221f;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+<div class="stripe-bar"></div>
+
+<div class="card">
+
+  <div class="icon">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"/>
+    </svg>
+  </div>
+
+  <h1>You're on Pro</h1>
+  <p class="sub">Your license key is below. Paste it into the extension popup to activate unlimited replies.</p>
+
+  <div class="error-state" id="errorState">
+    Could not retrieve your key automatically. Please check your email. Your key will arrive within a few minutes. If you need help, email <a href="mailto:nick@replyai.ca">nick@replyai.ca</a>.
+  </div>
+
+  <div class="key-wrap" id="keyWrap">
+    <div class="key-label">Your license key</div>
+    <div class="key-value loading" id="keyValue">Fetching your key…</div>
+    <button class="btn-copy" id="btnCopy" style="display:none" type="button">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <rect x="9" y="9" width="13" height="13" rx="2"/>
+        <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+      </svg>
+      Copy key
+    </button>
+  </div>
+
+  <div class="instructions">
+    <h3>Activate in 3 steps</h3>
+    <div class="step">
+      <span class="step-num">1</span>
+      <span>Copy your key above</span>
+    </div>
+    <div class="step">
+      <span class="step-num">2</span>
+      <span>Click the Reply AI icon in Chrome to open the popup</span>
+    </div>
+    <div class="step">
+      <span class="step-num">3</span>
+      <span>Paste the key in the <strong>Pro License Key</strong> field and hit Activate</span>
+    </div>
+  </div>
+
+  <p class="email-note">Key also emailed to you. Questions? <a href="mailto:nick@replyai.ca">nick@replyai.ca</a></p>
+
+</div>
+
+<script>
+  const BACKEND = 'https://replyai-backend-production-e6fd.up.railway.app';
+  const params  = new URLSearchParams(window.location.search);
+  const sid     = params.get('session_id');
+
+  async function fetchKey(attempt = 0) {
+    if (!sid) { showError(); return; }
+    try {
+      const res  = await fetch(`${BACKEND}/api/v1/license/from-session?session_id=${encodeURIComponent(sid)}`);
+      const data = await res.json();
+
+      if (res.ok && data.licenseKey) {
+        showKey(data.licenseKey);
+        return;
+      }
+      // 202 = webhook not landed yet — poll up to 10 times (20s total)
+      if (res.status === 202 && attempt < 10) {
+        setTimeout(() => fetchKey(attempt + 1), 2000);
+        return;
+      }
+      showError();
+    } catch {
+      if (attempt < 3) { setTimeout(() => fetchKey(attempt + 1), 3000); }
+      else showError();
+    }
+  }
+
+  function showKey(key) {
+    const el  = document.getElementById('keyValue');
+    const btn = document.getElementById('btnCopy');
+    el.textContent = key;
+    el.classList.remove('loading');
+    btn.style.display = 'inline-flex';
+
+    btn.addEventListener('click', async () => {
+      await navigator.clipboard.writeText(key);
+      const orig = btn.innerHTML;
+      btn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Copied!`;
+      btn.classList.add('ok');
+      setTimeout(() => { btn.innerHTML = orig; btn.classList.remove('ok'); }, 2500);
+    });
+  }
+
+  function showError() {
+    document.getElementById('errorState').style.display = 'block';
+    document.getElementById('keyValue').style.display   = 'none';
+  }
+
+  fetchKey();
+</script>
+</body>
+</html>
+     
