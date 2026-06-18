@@ -452,36 +452,77 @@
         </div>
       </div>
 
-      <!-- Widget mockup -->
+      <!-- Widget mockup carousel -->
       <div>
-        <div class="widget-mockup">
+        <div class="widget-mockup" id="heroMockup">
           <div class="mockup-bar"></div>
           <div class="mockup-review-area">
-            <div class="mockup-stars">★★★★☆</div>
-            <div class="mockup-review-name">James T. · 3 days ago</div>
-            <div class="mockup-review-text">Great food, but service was slow on a busy Saturday night. The eggs benedict were perfect though. Would come back for brunch.</div>
+            <div class="mockup-stars" id="mStars">★★★★☆</div>
+            <div class="mockup-review-name" id="mName">James T. · 3 days ago</div>
+            <div class="mockup-review-text" id="mReview">Great food, but service was slow on a busy Saturday night. The eggs benedict were perfect though. Would come back for brunch.</div>
           </div>
           <div class="mockup-widget">
             <div class="mockup-ctx">
-              <span class="mockup-ctx-stars">★★★★☆</span>
-              <span class="mockup-ctx-name">James</span>
-              <span class="mockup-ctx-age">3d ago</span>
+              <span class="mockup-ctx-stars" id="mCtxStars">★★★★☆</span>
+              <span class="mockup-ctx-name" id="mCtxName">James</span>
+              <span class="mockup-ctx-age" id="mCtxAge">3d ago</span>
             </div>
-            <div class="mockup-preview">"Great food, but service was slow on a busy Saturday..."</div>
+            <div class="mockup-preview" id="mPreview">"Great food, but service was slow on a busy Saturday..."</div>
             <div class="mockup-btn">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
               Generate reply <span class="mockup-btn-kbd">Alt+G</span>
             </div>
             <div class="mockup-card">
-              <div class="mockup-reply-text">Saturdays are genuinely our hardest shift and the wait you had was too long. Really glad the eggs benedict were worth the trip. Come back for a weekday brunch and you'll see what a normal night looks like here.</div>
+              <div class="mockup-reply-text" id="mReply">Best tacos in the city is not something I take lightly. So I'm glad they held up to that. The 25-minute wait for the bill is on us, and I know how flat that lands at the end of a good meal. No excuse for it. When you come back, tell your server upfront that you're on a schedule. We'll get it right.</div>
               <div class="mockup-card-foot">
-                <span class="mockup-charcount">183 / 4000</span>
+                <span class="mockup-charcount" id="mCount">298 / 4000</span>
                 <button class="mockup-copy">Copy</button>
                 <button class="mockup-use">Post reply ✓</button>
               </div>
             </div>
           </div>
         </div>
+        <!-- Carousel nav -->
+        <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;">
+          <button onclick="heroSlide(-1)" style="background:none;border:1px solid rgba(255,255,255,0.25);color:#fff;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:14px;line-height:1;display:flex;align-items:center;justify-content:center;">&#8592;</button>
+          <div id="heroDots" style="display:flex;gap:6px;">
+            <span class="hdot active" data-i="0" onclick="heroGo(0)"></span>
+            <span class="hdot" data-i="1" onclick="heroGo(1)"></span>
+            <span class="hdot" data-i="2" onclick="heroGo(2)"></span>
+            <span class="hdot" data-i="3" onclick="heroGo(3)"></span>
+            <span class="hdot" data-i="4" onclick="heroGo(4)"></span>
+          </div>
+          <button onclick="heroSlide(1)" style="background:none;border:1px solid rgba(255,255,255,0.25);color:#fff;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:14px;line-height:1;display:flex;align-items:center;justify-content:center;">&#8594;</button>
+        </div>
+        <style>
+          .hdot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.3);cursor:pointer;transition:background .2s;}
+          .hdot.active{background:#fff;}
+        </style>
+        <script>
+          const heroExamples=[
+            {stars:"★★★★☆",name:"Sarah M. · 2 days ago",review:"The tacos were incredible, best I've had in the city. Only reason for 4 stars is we waited 25 minutes for the bill at the end. Food was worth it though, will be back.",ctxStars:"★★★★☆",ctxName:"Sarah M.",ctxAge:"2d ago",preview:'"The tacos were incredible, best I've had in the city..."',reply:"Best tacos in the city is not something I take lightly. So I'm glad they held up to that. The 25-minute wait for the bill is on us, and I know how flat that lands at the end of a good meal. No excuse for it. When you come back, tell your server upfront that you're on a schedule. We'll get it right.",biz:"Restaurant"},
+            {stars:"★★★★★",name:"David K. · 1 day ago",review:"I've been dreading going to the dentist for years but Dr. Chen made the whole thing completely painless. Staff were kind and explained everything. Actually looking forward to my next appointment.",ctxStars:"★★★★★",ctxName:"David K.",ctxAge:"1d ago",preview:'"I've been dreading the dentist for years but Dr. Chen..."',reply:"Years of dreading it, and Dr. Chen turned that around in a single visit. That's not a small thing. I'll make sure she hears this directly, because that kind of patient experience starts with how she runs the room and the team takes their cue from her. The fact that you're actually looking forward to coming back is what we're after.",biz:"Dental"},
+            {stars:"★★★☆☆",name:"Tom R. · 4 days ago",review:"Work was done on time and the car runs fine now. But I was quoted $280 and the final bill was $410 with no call to let me know. Would've appreciated a heads up before the extra work was done.",ctxStars:"★★★☆☆",ctxName:"Tom R.",ctxAge:"4d ago",preview:'"Quoted $280, final bill was $410 with no call..."',reply:"Going from a $280 quote to a $410 bill without a call in between is the exact thing that shouldn't happen here. You made a plan around that number. The work coming in higher might have been unavoidable, but the silence wasn't. That's on us and I won't dress it up. If you come back, that call happens before any additional work gets touched. That's the commitment I can make directly.",biz:"Auto Repair"},
+            {stars:"★☆☆☆☆",name:"Priya S. · 5 days ago",review:"Asked for a trim and a toner. Left with my hair two inches shorter than I wanted and the colour is nothing like what we discussed. Really disappointed.",ctxStars:"★☆☆☆☆",ctxName:"Priya S.",ctxAge:"5d ago",preview:'"Asked for a trim and toner, left with a completely different result..."',reply:"Leaving with two inches more off than you asked for, and a colour that doesn't match what you described, that's not a trim and toner. That's a different result entirely. I'm sorry it happened, and I won't try to explain it away. What you asked for was clear and we didn't deliver it. Please reach out to us directly and ask for me. I want to see this put right.",biz:"Hair Salon"},
+            {stars:"★★★★★",name:"Claire B. · 6 days ago",review:"Stayed for our anniversary and the team went above and beyond. The room was spotless and they left a small note and chocolates. Little things like that make a big difference.",ctxStars:"★★★★★",ctxName:"Claire B.",ctxAge:"6d ago",preview:'"Stayed for our anniversary and the team went above and beyond..."',reply:"The note and chocolates, those small details are the ones that stay with people. I'm glad they landed the way they did on your anniversary. And honestly, that's the whole idea, that a stay can feel like someone thought about you specifically, not just filled a room. Come back and let us know when another occasion is coming up.",biz:"Hotel"}
+          ];
+          let heroIdx=0;
+          function heroRender(i){
+            const e=heroExamples[i];
+            document.getElementById("mStars").textContent=e.stars;
+            document.getElementById("mName").textContent=e.name;
+            document.getElementById("mReview").textContent=e.review;
+            document.getElementById("mCtxStars").textContent=e.ctxStars;
+            document.getElementById("mCtxName").textContent=e.ctxName;
+            document.getElementById("mCtxAge").textContent=e.ctxAge;
+            document.getElementById("mPreview").textContent=e.preview;
+            document.getElementById("mReply").textContent=e.reply;
+            document.getElementById("mCount").textContent=e.reply.length+" / 4000";
+            document.querySelectorAll(".hdot").forEach((d,j)=>d.classList.toggle("active",j===i));
+          }
+          function heroSlide(dir){heroIdx=(heroIdx+dir+heroExamples.length)%heroExamples.length;heroRender(heroIdx);}
+          function heroGo(i){heroIdx=i;heroRender(i);}
+        </script>
       </div>
     </div>
   </div>
