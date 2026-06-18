@@ -501,12 +501,42 @@
         </style>
         <script>
           const heroExamples=[
-            {stars:"★★★★☆",name:"Sarah M. · 2 days ago",review:"The tacos were incredible, best I've had in the city. Only reason for 4 stars is we waited 25 minutes for the bill at the end. Food was worth it though, will be back.",ctxStars:"★★★★☆",ctxName:"Sarah M.",ctxAge:"2d ago",preview:'"The tacos were incredible, best I've had in the city..."',reply:"Best tacos in the city is not something I take lightly. So I'm glad they held up to that. The 25-minute wait for the bill is on us, and I know how flat that lands at the end of a good meal. No excuse for it. When you come back, tell your server upfront that you're on a schedule. We'll get it right.",biz:"Restaurant"},
-            {stars:"★★★★★",name:"David K. · 1 day ago",review:"I've been dreading going to the dentist for years but Dr. Chen made the whole thing completely painless. Staff were kind and explained everything. Actually looking forward to my next appointment.",ctxStars:"★★★★★",ctxName:"David K.",ctxAge:"1d ago",preview:'"I've been dreading the dentist for years but Dr. Chen..."',reply:"Years of dreading it, and Dr. Chen turned that around in a single visit. That's not a small thing. I'll make sure she hears this directly, because that kind of patient experience starts with how she runs the room and the team takes their cue from her. The fact that you're actually looking forward to coming back is what we're after.",biz:"Dental"},
-            {stars:"★★★☆☆",name:"Tom R. · 4 days ago",review:"Work was done on time and the car runs fine now. But I was quoted $280 and the final bill was $410 with no call to let me know. Would've appreciated a heads up before the extra work was done.",ctxStars:"★★★☆☆",ctxName:"Tom R.",ctxAge:"4d ago",preview:'"Quoted $280, final bill was $410 with no call..."',reply:"Going from a $280 quote to a $410 bill without a call in between is the exact thing that shouldn't happen here. You made a plan around that number. The work coming in higher might have been unavoidable, but the silence wasn't. That's on us and I won't dress it up. If you come back, that call happens before any additional work gets touched. That's the commitment I can make directly.",biz:"Auto Repair"},
-            {stars:"★☆☆☆☆",name:"Priya S. · 5 days ago",review:"Asked for a trim and a toner. Left with my hair two inches shorter than I wanted and the colour is nothing like what we discussed. Really disappointed.",ctxStars:"★☆☆☆☆",ctxName:"Priya S.",ctxAge:"5d ago",preview:'"Asked for a trim and toner, left with a completely different result..."',reply:"Leaving with two inches more off than you asked for, and a colour that doesn't match what you described, that's not a trim and toner. That's a different result entirely. I'm sorry it happened, and I won't try to explain it away. What you asked for was clear and we didn't deliver it. Please reach out to us directly and ask for me. I want to see this put right.",biz:"Hair Salon"},
-            {stars:"★★★★★",name:"Claire B. · 6 days ago",review:"Stayed for our anniversary and the team went above and beyond. The room was spotless and they left a small note and chocolates. Little things like that make a big difference.",ctxStars:"★★★★★",ctxName:"Claire B.",ctxAge:"6d ago",preview:'"Stayed for our anniversary and the team went above and beyond..."',reply:"The note and chocolates, those small details are the ones that stay with people. I'm glad they landed the way they did on your anniversary. And honestly, that's the whole idea, that a stay can feel like someone thought about you specifically, not just filled a room. Come back and let us know when another occasion is coming up.",biz:"Hotel"}
-          ];
+            {
+              stars:"★★★★☆",name:"Sarah M. · 2 days ago",biz:"Restaurant",
+              ctxStars:"★★★★☆",ctxName:"Sarah M.",ctxAge:"2d ago",
+              preview:'"The tacos were genuinely some of the best..."',
+              review:"The tacos were genuinely some of the best I have had. Flavors were really well done. Only thing that knocked a star off was we waited almost 25 minutes for our bill after we asked. Food and atmosphere made up for it but the end left a slightly flat taste.",
+              reply:"The tacos landing that well means a lot, because those flavors take real work to get right. But 25 minutes waiting for the bill after you asked is too long, and I won\'t dress that up. That flat note at the end is on us, Sarah, and it\'s the kind of thing that stays with me. Come back and let the whole visit close the way it should."
+            },
+            {
+              stars:"★★★★★",name:"Priya K. · 1 week ago",biz:"Hair Salon",
+              ctxStars:"★★★★★",ctxName:"Priya K.",ctxAge:"1w ago",
+              preview:'"Finally found someone who actually listens..."',
+              review:"I have been going to a lot of different places trying to find someone who actually listens to what I want and does not just do whatever. Finally found it here. Jess took her time, asked good questions, and the result was exactly what I described. Already booked my next appointment.",
+              reply:"Already booked the next appointment before you even left. That\'s the thing I notice most when a visit really lands. Jess is good at that part of the job that\'s harder than it looks, the listening, the questions that actually help her understand what someone wants rather than what she assumes they want. I\'m glad you found your way to us, Priya. We\'ll see you at that next one."
+            },
+            {
+              stars:"★★★★★",name:"Marcus D. · 3 days ago",biz:"Gym",
+              ctxStars:"★★★★★",ctxName:"Marcus D.",ctxAge:"3d ago",
+              preview:'"6 months ago I could not do a single pull-up..."',
+              review:"6 months ago I could not do a single pull-up. Now I can do 8. The coaches here actually track your progress and adjust things when you plateau. It is not just showing up and guessing.",
+              reply:"Eight pull-ups after not being able to do one is a real marker. That kind of progress doesn\'t happen by accident, Marcus, and it doesn\'t happen from just showing up and hoping. The coaches here pay attention to where people stall and that\'s exactly the work I want this place known for. Keep going."
+            },
+            {
+              stars:"★★★☆☆",name:"Brian L. · 5 days ago",biz:"Plumber",
+              ctxStars:"★★★☆☆",ctxName:"Brian L.",ctxAge:"5d ago",
+              preview:'"Work was good quality, but 90 mins late with no call..."',
+              review:"The work itself was good quality and the technician knew what he was doing. But they showed up 90 minutes after the window with no call ahead. I had to cancel a meeting. The fix held up and the price was fair so that counts for something.",
+              reply:"Ninety minutes late with no call is a real problem, and cancelling a meeting because of us makes it worse. That\'s on me, not the technician who did the work. I don\'t have a good excuse for the gap in communication, Brian, and you deserved at least a heads-up before that window closed. If you need us again, I\'ll make sure the communication matches the quality of the work."
+            },
+            {
+              stars:"★★☆☆☆",name:"Diane W. · 1 week ago",biz:"Dentist",
+              ctxStars:"★★☆☆☆",ctxName:"Diane W.",ctxAge:"1w ago",
+              preview:'"Waited 45 minutes with no explanation at all..."',
+              review:"Waited 45 minutes past my appointment time and no one came out to explain why or how much longer it would be. The actual cleaning was fine once I got in but I had to leave work early for this and I am not sure I would come back.",
+              reply:"Leaving work early and then sitting in a waiting room for 45 minutes with no word from anyone is not something I can defend. You deserved a simple update. The fact that the cleaning went well once you were in makes it more frustrating, not less. Diane, please reach out to me directly. If you\'re willing to come back, I want your next appointment to actually respect the time you cleared for it."
+            }
+          ]
           let heroIdx=0;
           function heroRender(i){
             const e=heroExamples[i];
